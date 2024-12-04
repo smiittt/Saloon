@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const appointmentRoutes = require("./routes/appointmentRoutes");
+const fetchAppointmentRoutes = require("./routes/fetchAppointmentRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up routes
 app.use("/appointments", appointmentRoutes);
+app.use("/fetch-appointments", fetchAppointmentRoutes);
 
 // Start the server
 const PORT = process.env.APP_PORT || 5000;
